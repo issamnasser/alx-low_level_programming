@@ -4,7 +4,6 @@
  * print_listint -  function that prints elements of a linked list
  * @h: pointer to first node
  * 
- *
  * Return: the number of nodes
  */
 size_t print_listint(const listint_t *h)
