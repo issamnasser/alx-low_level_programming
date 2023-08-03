@@ -2,13 +2,14 @@
 #include <stdio.h>
 
 /**
- * binary_to_uint - function that prints the binary representation of a number
- * @b: binary numb to print
- * Return: void
+ * print_binary - function that prints the binary representation of a number
+ * @n: number to print
+ *
+ * return : void
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int bit;
+	unsigned long int temp;
 	int shifts;
 
 	if (n == 0)
@@ -17,7 +18,7 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	for (bit = n, shifts = 0; (bit >>= 1) > 0; shifts++)
+	for (temp = n, shifts = 0; (temp >>= 1) > 0; shifts++)
 		;
 
 	for (; shifts >= 0; shifts--)
