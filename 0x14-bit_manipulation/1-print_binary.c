@@ -6,21 +6,25 @@
  * @b: binary numb to print
  * Return: void
  */
-void print_binary(unsigned long int n);
+void print_binary(unsigned long int n)
 {
-	int B = sizeof(n) * 8, printed = 0;
+	unsigned long int bit;
+	int shifts;
 
-	while(B)
+	if (n == 0)
 	{
-		if (n & 1L << --B)
-		{
-			_putchar('1');
-			printed++;
-		}
-		else if (printed)
-			_putchar('0');
+		printf("0");
+		return;
 	}
 
-	if (!printed)
-		_putchar('0');
+	for (bit = n, shifts = 0; (bit >>= 1) > 0; shifts++)
+		;
+
+	for (; shifts >= 0; shifts--)
+	{
+		if ((n >> shifts) & 1)
+			printf("1");
+		else
+			printf("0");
+	}
 }
