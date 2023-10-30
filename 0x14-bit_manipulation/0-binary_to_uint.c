@@ -2,20 +2,29 @@
 #include <stdio.h>
 
 /**
- *  a function that converts a binary number to an unsigned int
- * @b: char string
- * Return: Return: the converted number, or 0
+ * binary_to_uint - convert a binary nmbr to unsigned int
+ * @b: the binary nmbr as string
+ * Return: converted decimal number or 0 if there is an char
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int t=0;
-	if (!b)
+	unsigned int t, p;
+	int l;
+
+	if (b == NULL)
 		return (0);
 
-	while (*b)
+	for (l = 0; b[l]; l++)
 	{
-		if (*b != '0' && *b != '1')
+		if (b[l] != '0' && b[l] != '1')
 			return (0);
-    t = t*2 + (*b++ - '0');
 	}
-  return (t);
+
+	for (p = 1, t = 0, l--; l >= 0; l--, p *= 2)
+	{
+		if (b[l] == '1')
+			t += p;
+	}
+
+	return (t);
+}
